@@ -9,6 +9,9 @@ using UnityEngine;
 public class LightsaberTrailController : MonoBehaviour {
 
     LightsaberTrail lightsaberTrail;
+    public bool disableTrailRender;
+
+    Quaternion previousRotation;
 
     void Start()
     {
@@ -17,8 +20,12 @@ public class LightsaberTrailController : MonoBehaviour {
 
     void Update()
     {
-        lightsaberTrail.Iterate(Time.time);
+
+        if(!disableTrailRender && transform.rotation != previousRotation)
+            lightsaberTrail.Iterate(Time.time);
         lightsaberTrail.UpdateTrail(Time.time, 0f);
+
+        previousRotation = transform.rotation;
     }
 
 }
