@@ -230,7 +230,7 @@ public class Lightsaber : MonoBehaviour {
 	void Update () {
         
         // key pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Weapon Enable"))
         {
             // Debug.Log("Space was pressed");
 
